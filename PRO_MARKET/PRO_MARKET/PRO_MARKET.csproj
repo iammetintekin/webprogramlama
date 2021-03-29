@@ -105,8 +105,23 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="css\app.css" />
     <Content Include="favicon.ico" />
+    <Content Include="fonts\fa-brands-400.svg" />
+    <Content Include="fonts\fa-regular-400.svg" />
+    <Content Include="fonts\fa-solid-900.svg" />
     <Content Include="Global.asax" />
+    <Content Include="img\avatars\avatar-2.jpg" />
+    <Content Include="img\avatars\avatar-3.jpg" />
+    <Content Include="img\avatars\avatar-4.jpg" />
+    <Content Include="img\avatars\avatar-5.jpg" />
+    <Content Include="img\avatars\avatar.jpg" />
+    <Content Include="img\icons\icon-48x48.png" />
+    <Content Include="img\photos\unsplash-1.jpg" />
+    <Content Include="img\photos\unsplash-2.jpg" />
+    <Content Include="img\photos\unsplash-3.jpg" />
+    <Content Include="js\app.js" />
+    <Content Include="js\app.js.LICENSE.txt" />
     <Content Include="ViewSwitcher.ascx" />
     <Content Include="Web.config" />
     <Content Include="Bundle.config" />
@@ -130,6 +145,59 @@
     <Folder Include="App_Data\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="fonts\fa-brands-400.eot" />
+    <Content Include="fonts\fa-brands-400.ttf" />
+    <Content Include="fonts\fa-brands-400.woff" />
+    <Content Include="fonts\fa-brands-400.woff2" />
+    <Content Include="fonts\fa-regular-400.eot" />
+    <Content Include="fonts\fa-regular-400.ttf" />
+    <Content Include="fonts\fa-regular-400.woff" />
+    <Content Include="fonts\fa-regular-400.woff2" />
+    <Content Include="fonts\fa-solid-900.eot" />
+    <Content Include="fonts\fa-solid-900.ttf" />
+    <Content Include="fonts\fa-solid-900.woff" />
+    <Content Include="fonts\fa-solid-900.woff2" />
+    <Content Include="fonts\Inter-Black.woff" />
+    <Content Include="fonts\Inter-Black.woff2" />
+    <Content Include="fonts\Inter-BlackItalic.woff" />
+    <Content Include="fonts\Inter-BlackItalic.woff2" />
+    <Content Include="fonts\Inter-Bold.woff" />
+    <Content Include="fonts\Inter-Bold.woff2" />
+    <Content Include="fonts\Inter-BoldItalic.woff" />
+    <Content Include="fonts\Inter-BoldItalic.woff2" />
+    <Content Include="fonts\Inter-ExtraBold.woff" />
+    <Content Include="fonts\Inter-ExtraBold.woff2" />
+    <Content Include="fonts\Inter-ExtraBoldItalic.woff" />
+    <Content Include="fonts\Inter-ExtraBoldItalic.woff2" />
+    <Content Include="fonts\Inter-ExtraLight-BETA.woff" />
+    <Content Include="fonts\Inter-ExtraLight-BETA.woff2" />
+    <Content Include="fonts\Inter-ExtraLightItalic-BETA.woff" />
+    <Content Include="fonts\Inter-ExtraLightItalic-BETA.woff2" />
+    <Content Include="fonts\Inter-italic.var.woff2" />
+    <Content Include="fonts\Inter-Italic.woff" />
+    <Content Include="fonts\Inter-Italic.woff2" />
+    <Content Include="fonts\Inter-Light-BETA.woff" />
+    <Content Include="fonts\Inter-Light-BETA.woff2" />
+    <Content Include="fonts\Inter-LightItalic-BETA.woff" />
+    <Content Include="fonts\Inter-LightItalic-BETA.woff2" />
+    <Content Include="fonts\Inter-Medium.woff" />
+    <Content Include="fonts\Inter-Medium.woff2" />
+    <Content Include="fonts\Inter-MediumItalic.woff" />
+    <Content Include="fonts\Inter-MediumItalic.woff2" />
+    <Content Include="fonts\Inter-Regular.woff" />
+    <Content Include="fonts\Inter-Regular.woff2" />
+    <Content Include="fonts\Inter-SemiBold.woff" />
+    <Content Include="fonts\Inter-SemiBold.woff2" />
+    <Content Include="fonts\Inter-SemiBoldItalic.woff" />
+    <Content Include="fonts\Inter-SemiBoldItalic.woff2" />
+    <Content Include="fonts\Inter-Thin-BETA.woff" />
+    <Content Include="fonts\Inter-Thin-BETA.woff2" />
+    <Content Include="fonts\Inter-ThinItalic-BETA.woff" />
+    <Content Include="fonts\Inter-ThinItalic-BETA.woff2" />
+    <Content Include="fonts\Inter-upright.var.woff2" />
+    <Content Include="fonts\Inter.var.woff2" />
+    <Content Include="js\app.js.LICENSE" />
+    <Content Include="js\app.js.map" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
