@@ -1,0 +1,6 @@
+D:\Dersler\WEB_PROG\webprogramlama\PRO_MARKET\Proje.DataAccess\bin\Debug\Proje.DataAccess.dll
+D:\Dersler\WEB_PROG\webprogramlama\PRO_MARKET\Proje.DataAccess\bin\Debug\Proje.DataAccess.pdb
+D:\Dersler\WEB_PROG\webprogramlama\PRO_MARKET\Proje.DataAccess\obj\Debug\Proje.DataAccess.csprojAssemblyReference.cache
+D:\Dersler\WEB_PROG\webprogramlama\PRO_MARKET\Proje.DataAccess\obj\Debug\Proje.DataAccess.csproj.CoreCompileInputs.cache
+D:\Dersler\WEB_PROG\webprogramlama\PRO_MARKET\Proje.DataAccess\obj\Debug\Proje.DataAccess.dll
+D:\Dersler\WEB_PROG\webprogramlama\PRO_MARKET\Proje.DataAccess\obj\Debug\Proje.DataAccess.pdb

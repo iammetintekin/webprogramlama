@@ -72,3 +72,7 @@ D:\Dersler\WEB_PROG\webprogramlama\PRO_MARKET\PRO_MARKET\obj\Debug\PRO_MARKET.cs
 D:\Dersler\WEB_PROG\webprogramlama\PRO_MARKET\PRO_MARKET\obj\Debug\PRO_MARKET.csproj.CopyComplete
 D:\Dersler\WEB_PROG\webprogramlama\PRO_MARKET\PRO_MARKET\obj\Debug\PRO_MARKET.dll
 D:\Dersler\WEB_PROG\webprogramlama\PRO_MARKET\PRO_MARKET\obj\Debug\PRO_MARKET.pdb
+D:\Dersler\WEB_PROG\webprogramlama\PRO_MARKET\PRO_MARKET\bin\Proje.Business.dll
+D:\Dersler\WEB_PROG\webprogramlama\PRO_MARKET\PRO_MARKET\bin\Proje.DataAccess.dll
+D:\Dersler\WEB_PROG\webprogramlama\PRO_MARKET\PRO_MARKET\bin\Proje.Business.pdb
+D:\Dersler\WEB_PROG\webprogramlama\PRO_MARKET\PRO_MARKET\bin\Proje.DataAccess.pdb
