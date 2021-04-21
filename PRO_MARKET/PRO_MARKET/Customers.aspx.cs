@@ -1,6 +1,7 @@
 ﻿using Proje.Business;
 using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
@@ -10,15 +11,40 @@ namespace PRO_MARKET
 {
     public partial class WebForm2 : System.Web.UI.Page
     {
+        static SqlDataReader source;
         protected void Page_Load(object sender, EventArgs e)
         {
-            Customers customers = new Customers();
-            //CustomerRepeater.DataSource = customers.GetCustomers("");
-            //CustomerRepeater.DataBind();
 
-            //CustomerRepeater.DataSource = customers.GetCustomersById(1);
-            //CustomerRepeater.DataBind();
+            if (!IsPostBack)
+            {
+                getAllCustomers();
+            }
+            
         }
 
+        protected void SearchChanged(object sender, EventArgs e)
+        {
+                TextBox textBox = (TextBox)sender;
+            if(textBox.Text == "")
+            {
+                getAllCustomers();
+            }
+            else
+            {
+                Customers customers = new Customers();
+                source = customers.GetByUsername(textBox.Text);
+                CustomerRepeater.DataSource = source;
+                CustomerRepeater.DataBind();
+            }
+                
+        }
+
+        protected void getAllCustomers()
+        {
+            Customers customers = new Customers();
+            source = customers.GetAll();
+            CustomerRepeater.DataSource = source;
+            CustomerRepeater.DataBind();
+        }
     }
 }
