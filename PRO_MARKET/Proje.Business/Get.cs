@@ -13,5 +13,7 @@ namespace Proje.Business
         SqlDataReader GetAll();
         SqlDataReader GetByUsername(string username);
 
+        int GetTableCounts();
+
     }
 }

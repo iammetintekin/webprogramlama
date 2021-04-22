@@ -45,6 +45,8 @@ namespace PRO_MARKET
             source = customers.GetAll();
             CustomerRepeater.DataSource = source;
             CustomerRepeater.DataBind();
+
+             customersCount.Text = " Showing total " + customers.GetTableCounts().ToString() + " rows";
         }
     }
 }

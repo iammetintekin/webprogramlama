@@ -52,5 +52,22 @@ namespace Proje.Business
             reader = command.ExecuteReader();
             return reader;
         }
+
+        public int GetTableCounts()
+        {
+            DatabaseConnection connection = new DatabaseConnection();
+            SqlConnection conn = connection.Connect();
+            SqlCommand command;
+
+            SqlDataReader reader;
+            command = new SqlCommand("select count(*) as Count_ from USERS", conn);
+            reader = command.ExecuteReader();
+            if (reader.Read())
+            {
+                return Convert.ToInt32(reader["Count_"].ToString());
+            }
+
+            return Convert.ToInt32(reader["Count_"].ToString());
+        }
     }
 }
