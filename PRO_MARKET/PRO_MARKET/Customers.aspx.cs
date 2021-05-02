@@ -1,4 +1,5 @@
 ﻿using Proje.Business;
+using Proje.DataAccess;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -11,7 +12,7 @@ namespace PRO_MARKET
 {
     public partial class WebForm2 : System.Web.UI.Page
     {
-        static SqlDataReader source;
+        PROMARKETEntities db = new PROMARKETEntities();
         protected void Page_Load(object sender, EventArgs e)
         {
 
@@ -19,34 +20,30 @@ namespace PRO_MARKET
             {
                 getAllCustomers();
             }
-            
+
         }
 
         protected void SearchChanged(object sender, EventArgs e)
         {
-                TextBox textBox = (TextBox)sender;
-            if(textBox.Text == "")
+            TextBox textBox = (TextBox)sender;
+            if (textBox.Text == "")
             {
                 getAllCustomers();
             }
             else
             {
-                Customers customers = new Customers();
-                source = customers.GetByUsername(textBox.Text);
-                CustomerRepeater.DataSource = source;
-                CustomerRepeater.DataBind();
             }
-                
+
         }
 
         protected void getAllCustomers()
         {
             Customers customers = new Customers();
-            source = customers.GetAll();
+            var source = customers.Listele();
             CustomerRepeater.DataSource = source;
             CustomerRepeater.DataBind();
 
-             customersCount.Text = " Showing total " + customers.GetTableCounts().ToString() + " rows";
+            customersCount.Text = " Showing total " + source.Count().ToString() + " rows";
         }
     }
 }

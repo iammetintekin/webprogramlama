@@ -1,0 +1,270 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="PROMARKETModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="ADDRESS">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="USERID" Type="int" />
+    <Property Name="COUNTRYID" Type="tinyint" />
+    <Property Name="CITYID" Type="smallint" />
+    <Property Name="TOWNID" Type="int" />
+    <Property Name="DISTRICTID" Type="int" />
+    <Property Name="POSTALCODE" Type="varchar" MaxLength="10" />
+    <Property Name="ADDRESSTEXT" Type="varchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="CITIES">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="smallint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="COUNTRYID" Type="tinyint" />
+    <Property Name="CITY" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="COUNTRIES">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="tinyint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="COUNTRY" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="DISTRICTS">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TOWNID" Type="int" />
+    <Property Name="DISTRICT" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="INVOICEDETAILS">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="INVOICEID" Type="int" />
+    <Property Name="ORDERDETAILID" Type="int" />
+    <Property Name="ITEMID" Type="int" />
+    <Property Name="AMOUNT" Type="int" />
+    <Property Name="UNITPRICE" Type="decimal" Precision="18" Scale="4" />
+    <Property Name="LINETOTAL" Type="decimal" Precision="18" Scale="4" />
+  </EntityType>
+  <EntityType Name="INVOICES">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ORDERID" Type="int" />
+    <Property Name="DATE_" Type="datetime" />
+    <Property Name="ADDRESSID" Type="int" />
+    <Property Name="CARGOFICHENO" Type="varchar" MaxLength="20" />
+    <Property Name="TOTALPRICE" Type="decimal" Precision="18" Scale="4" />
+  </EntityType>
+  <EntityType Name="ITEMS">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ITEMCODE" Type="varchar" MaxLength="50" />
+    <Property Name="ITEMNAME" Type="varchar" MaxLength="100" />
+    <Property Name="UNITPRICE" Type="float" />
+    <Property Name="CATEGORY1" Type="varchar" MaxLength="50" />
+    <Property Name="CATEGORY2" Type="varchar" MaxLength="50" />
+    <Property Name="CATEGORY3" Type="varchar" MaxLength="50" />
+    <Property Name="CATEGORY4" Type="varchar" MaxLength="50" />
+    <Property Name="BRAND" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="ORDERDETAILS">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ORDERID" Type="int" />
+    <Property Name="ITEMID" Type="int" />
+    <Property Name="AMOUNT" Type="int" />
+    <Property Name="UNITPRICE" Type="decimal" Precision="18" Scale="4" />
+    <Property Name="LINETOTAL" Type="decimal" Precision="18" Scale="4" />
+  </EntityType>
+  <EntityType Name="ORDERS">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="USERID" Type="int" />
+    <Property Name="DATE_" Type="datetime" />
+    <Property Name="TOTALPRICE" Type="decimal" Precision="18" Scale="4" />
+    <Property Name="STATUS_" Type="tinyint" />
+    <Property Name="ADDRESSID" Type="int" />
+  </EntityType>
+  <EntityType Name="PAYMENTS">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ORDERID" Type="int" />
+    <Property Name="PAYMENTTYPE" Type="tinyint" />
+    <Property Name="DATE_" Type="datetime" />
+    <Property Name="ISOK" Type="bit" />
+    <Property Name="APPROVECODE" Type="varchar" MaxLength="100" />
+    <Property Name="PAYMENTTOTAL" Type="decimal" Precision="18" Scale="4" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="TOWNS">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" Nullable="false" />
+    <Property Name="CITYID" Type="smallint" />
+    <Property Name="TOWN" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="USERS">
+    <Key>
+      <PropertyRef Name="ID" />
+    </Key>
+    <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="USERNAME_" Type="varchar" MaxLength="50" />
+    <Property Name="PASSWORD_" Type="varchar" MaxLength="50" />
+    <Property Name="NAMESURNAME" Type="varchar" MaxLength="100" />
+    <Property Name="EMAIL" Type="varchar" MaxLength="100" />
+    <Property Name="GENDER" Type="varchar" MaxLength="1" />
+    <Property Name="BIRTHDATE" Type="date" />
+    <Property Name="CREATEDDATE" Type="datetime" />
+    <Property Name="TELNR1" Type="varchar" MaxLength="15" />
+    <Property Name="TELNR2" Type="varchar" MaxLength="15" />
+  </EntityType>
+  <Association Name="FK_CITIES_COUNTRIES">
+    <End Role="COUNTRIES" Type="Self.COUNTRIES" Multiplicity="0..1" />
+    <End Role="CITIES" Type="Self.CITIES" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="COUNTRIES">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="CITIES">
+        <PropertyRef Name="COUNTRYID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_DISTRICTS_TOWNS">
+    <End Role="TOWNS" Type="Self.TOWNS" Multiplicity="0..1" />
+    <End Role="DISTRICTS" Type="Self.DISTRICTS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TOWNS">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="DISTRICTS">
+        <PropertyRef Name="TOWNID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_INVOICEDETAILS_INVOICES">
+    <End Role="INVOICES" Type="Self.INVOICES" Multiplicity="0..1" />
+    <End Role="INVOICEDETAILS" Type="Self.INVOICEDETAILS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="INVOICES">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="INVOICEDETAILS">
+        <PropertyRef Name="INVOICEID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_INVOICEDETAILS_ORDERDETAILS">
+    <End Role="ORDERDETAILS" Type="Self.ORDERDETAILS" Multiplicity="0..1" />
+    <End Role="INVOICEDETAILS" Type="Self.INVOICEDETAILS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ORDERDETAILS">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="INVOICEDETAILS">
+        <PropertyRef Name="ORDERDETAILID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ORDERDETAILS_ITEMS">
+    <End Role="ITEMS" Type="Self.ITEMS" Multiplicity="0..1" />
+    <End Role="ORDERDETAILS" Type="Self.ORDERDETAILS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ITEMS">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ORDERDETAILS">
+        <PropertyRef Name="ITEMID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ORDERDETAILS_ORDERS">
+    <End Role="ORDERS" Type="Self.ORDERS" Multiplicity="0..1" />
+    <End Role="ORDERDETAILS" Type="Self.ORDERDETAILS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ORDERS">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="ORDERDETAILS">
+        <PropertyRef Name="ORDERID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_TOWNS_CITIES">
+    <End Role="CITIES" Type="Self.CITIES" Multiplicity="0..1" />
+    <End Role="TOWNS" Type="Self.TOWNS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CITIES">
+        <PropertyRef Name="ID" />
+      </Principal>
+      <Dependent Role="TOWNS">
+        <PropertyRef Name="CITYID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="PROMARKETModelStoreContainer">
+    <EntitySet Name="ADDRESS" EntityType="Self.ADDRESS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CITIES" EntityType="Self.CITIES" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="COUNTRIES" EntityType="Self.COUNTRIES" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DISTRICTS" EntityType="Self.DISTRICTS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="INVOICEDETAILS" EntityType="Self.INVOICEDETAILS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="INVOICES" EntityType="Self.INVOICES" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ITEMS" EntityType="Self.ITEMS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ORDERDETAILS" EntityType="Self.ORDERDETAILS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ORDERS" EntityType="Self.ORDERS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="PAYMENTS" EntityType="Self.PAYMENTS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TOWNS" EntityType="Self.TOWNS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="USERS" EntityType="Self.USERS" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_CITIES_COUNTRIES" Association="Self.FK_CITIES_COUNTRIES">
+      <End Role="COUNTRIES" EntitySet="COUNTRIES" />
+      <End Role="CITIES" EntitySet="CITIES" />
+    </AssociationSet>
+    <AssociationSet Name="FK_DISTRICTS_TOWNS" Association="Self.FK_DISTRICTS_TOWNS">
+      <End Role="TOWNS" EntitySet="TOWNS" />
+      <End Role="DISTRICTS" EntitySet="DISTRICTS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_INVOICEDETAILS_INVOICES" Association="Self.FK_INVOICEDETAILS_INVOICES">
+      <End Role="INVOICES" EntitySet="INVOICES" />
+      <End Role="INVOICEDETAILS" EntitySet="INVOICEDETAILS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_INVOICEDETAILS_ORDERDETAILS" Association="Self.FK_INVOICEDETAILS_ORDERDETAILS">
+      <End Role="ORDERDETAILS" EntitySet="ORDERDETAILS" />
+      <End Role="INVOICEDETAILS" EntitySet="INVOICEDETAILS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ORDERDETAILS_ITEMS" Association="Self.FK_ORDERDETAILS_ITEMS">
+      <End Role="ITEMS" EntitySet="ITEMS" />
+      <End Role="ORDERDETAILS" EntitySet="ORDERDETAILS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ORDERDETAILS_ORDERS" Association="Self.FK_ORDERDETAILS_ORDERS">
+      <End Role="ORDERS" EntitySet="ORDERS" />
+      <End Role="ORDERDETAILS" EntitySet="ORDERDETAILS" />
+    </AssociationSet>
+    <AssociationSet Name="FK_TOWNS_CITIES" Association="Self.FK_TOWNS_CITIES">
+      <End Role="CITIES" EntitySet="CITIES" />
+      <End Role="TOWNS" EntitySet="TOWNS" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

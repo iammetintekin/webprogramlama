@@ -9,65 +9,25 @@ using System.Web.UI.WebControls;
 
 namespace Proje.Business
 {
-    public class Customers : IGet
+    public class Customers
     {
-      
-        public SqlDataReader GetAll()
+        public int ID { get; set; }
+        public string USERNAME_ { get; set; }
+        public string PASSWORD_ { get; set; }
+        public string NAMESURNAME { get; set; }
+        public string EMAIL { get; set; }
+        public string GENDER { get; set; }
+        public Nullable<System.DateTime> BIRTHDATE { get; set; }
+        public Nullable<System.DateTime> CREATEDDATE { get; set; }
+        public string TELNR1 { get; set; }
+        public string TELNR2 { get; set; }
+
+        public List<USERS> Listele()
         {
-            DatabaseConnection connection = new DatabaseConnection();
-            SqlConnection conn = connection.Connect();
-            SqlCommand command;
-
-            SqlDataReader reader;
-            command = new SqlCommand("select * from USERS WHERE ID<25", conn);
-            reader = command.ExecuteReader();
-
-            return reader;
+            PROMARKETEntities db = new PROMARKETEntities();
+            var result = db.USERS.ToList();
+            return result;
         }
 
-        public SqlDataReader GetById(int Id)
-        {
-            string commandtext = "select * from USERS WHERE ID = @ID";
-            DatabaseConnection connection = new DatabaseConnection();
-            SqlConnection conn = connection.Connect();
-            SqlCommand command;
-            SqlDataReader reader;
-            command = new SqlCommand(commandtext, conn);
-            command.Parameters.AddWithValue("@ID", Id.ToString());
-            reader = command.ExecuteReader();
-            return reader;
-        }
-
-        public SqlDataReader GetByUsername(string username)
-        {
-            string commandtext = "SELECT * FROM USERS WHERE CHARINDEX(@USERNAME_, USERNAME_)>0";
-
-            //string commandtext = "select * from USERS WHERE (USERNAME_ LIKE %'@USERNAME_'%";
-            DatabaseConnection connection = new DatabaseConnection();
-            SqlConnection conn = connection.Connect();
-            SqlCommand command;
-            SqlDataReader reader;
-            command = new SqlCommand(commandtext, conn);
-            command.Parameters.AddWithValue("@USERNAME_", username);
-            reader = command.ExecuteReader();
-            return reader;
-        }
-
-        public int GetTableCounts()
-        {
-            DatabaseConnection connection = new DatabaseConnection();
-            SqlConnection conn = connection.Connect();
-            SqlCommand command;
-
-            SqlDataReader reader;
-            command = new SqlCommand("select count(*) as Count_ from USERS", conn);
-            reader = command.ExecuteReader();
-            if (reader.Read())
-            {
-                return Convert.ToInt32(reader["Count_"].ToString());
-            }
-
-            return Convert.ToInt32(reader["Count_"].ToString());
-        }
     }
 }

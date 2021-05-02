@@ -15,7 +15,7 @@ namespace PRO_MARKET
         {
             if (!IsPostBack)
             {
-                CustomersCount.Text = customers.GetTableCounts().ToString();
+                CustomersCount.Text = customers.Listele().Count.ToString();
             }
         }
     }

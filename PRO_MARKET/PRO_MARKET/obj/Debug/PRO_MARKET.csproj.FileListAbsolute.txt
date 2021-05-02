@@ -76,3 +76,9 @@ D:\Dersler\WEB_PROG\webprogramlama\PRO_MARKET\PRO_MARKET\bin\Proje.Business.dll
 D:\Dersler\WEB_PROG\webprogramlama\PRO_MARKET\PRO_MARKET\bin\Proje.DataAccess.dll
 D:\Dersler\WEB_PROG\webprogramlama\PRO_MARKET\PRO_MARKET\bin\Proje.Business.pdb
 D:\Dersler\WEB_PROG\webprogramlama\PRO_MARKET\PRO_MARKET\bin\Proje.DataAccess.pdb
+D:\Dersler\WEB_PROG\webprogramlama\PRO_MARKET\PRO_MARKET\bin\EntityFramework.dll
+D:\Dersler\WEB_PROG\webprogramlama\PRO_MARKET\PRO_MARKET\bin\Proje.Business.dll.config
+D:\Dersler\WEB_PROG\webprogramlama\PRO_MARKET\PRO_MARKET\bin\Proje.DataAccess.dll.config
+D:\Dersler\WEB_PROG\webprogramlama\PRO_MARKET\PRO_MARKET\bin\EntityFramework.xml
+D:\Dersler\WEB_PROG\webprogramlama\PRO_MARKET\PRO_MARKET\bin\EntityFramework.SqlServer.dll
+D:\Dersler\WEB_PROG\webprogramlama\PRO_MARKET\PRO_MARKET\bin\EntityFramework.SqlServer.xml

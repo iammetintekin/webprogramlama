@@ -4,3 +4,9 @@ D:\Dersler\WEB_PROG\webprogramlama\PRO_MARKET\Proje.DataAccess\obj\Debug\Proje.D
 D:\Dersler\WEB_PROG\webprogramlama\PRO_MARKET\Proje.DataAccess\obj\Debug\Proje.DataAccess.csproj.CoreCompileInputs.cache
 D:\Dersler\WEB_PROG\webprogramlama\PRO_MARKET\Proje.DataAccess\obj\Debug\Proje.DataAccess.dll
 D:\Dersler\WEB_PROG\webprogramlama\PRO_MARKET\Proje.DataAccess\obj\Debug\Proje.DataAccess.pdb
+D:\Dersler\WEB_PROG\webprogramlama\PRO_MARKET\Proje.DataAccess\bin\Debug\Proje.DataAccess.dll.config
+D:\Dersler\WEB_PROG\webprogramlama\PRO_MARKET\Proje.DataAccess\bin\Debug\EntityFramework.dll
+D:\Dersler\WEB_PROG\webprogramlama\PRO_MARKET\Proje.DataAccess\bin\Debug\EntityFramework.SqlServer.dll
+D:\Dersler\WEB_PROG\webprogramlama\PRO_MARKET\Proje.DataAccess\bin\Debug\EntityFramework.xml
+D:\Dersler\WEB_PROG\webprogramlama\PRO_MARKET\Proje.DataAccess\bin\Debug\EntityFramework.SqlServer.xml
+D:\Dersler\WEB_PROG\webprogramlama\PRO_MARKET\Proje.DataAccess\obj\Debug\Proje.DataAccess.csproj.CopyComplete

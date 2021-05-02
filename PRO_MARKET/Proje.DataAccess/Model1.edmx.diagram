@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="bcd1d08722ef4e6f997a94c3c6af10fa" Name="Diagram1">
+        <EntityTypeShape EntityType="PROMARKETModel.ADDRESS" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PROMARKETModel.CITIES" Width="1.5" PointX="3" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="PROMARKETModel.COUNTRIES" Width="1.5" PointX="0.75" PointY="1.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="PROMARKETModel.DISTRICTS" Width="1.5" PointX="7.5" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="PROMARKETModel.INVOICEDETAILS" Width="1.5" PointX="2.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PROMARKETModel.INVOICES" Width="1.5" PointX="4.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PROMARKETModel.ITEMS" Width="1.5" PointX="6.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PROMARKETModel.ORDERDETAILS" Width="1.5" PointX="0.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PROMARKETModel.ORDERS" Width="1.5" PointX="2.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PROMARKETModel.PAYMENTS" Width="1.5" PointX="4.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PROMARKETModel.sysdiagrams" Width="1.5" PointX="6.75" PointY="7.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PROMARKETModel.TOWNS" Width="1.5" PointX="5.25" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="PROMARKETModel.USERS" Width="1.5" PointX="8.75" PointY="3.75" IsExpanded="true" />
+        <AssociationConnector Association="PROMARKETModel.FK_CITIES_COUNTRIES" ManuallyRouted="false" />
+        <AssociationConnector Association="PROMARKETModel.FK_TOWNS_CITIES" ManuallyRouted="false" />
+        <AssociationConnector Association="PROMARKETModel.FK_DISTRICTS_TOWNS" ManuallyRouted="false" />
+        <AssociationConnector Association="PROMARKETModel.FK_INVOICEDETAILS_INVOICES" />
+        <AssociationConnector Association="PROMARKETModel.FK_INVOICEDETAILS_ORDERDETAILS" />
+        <AssociationConnector Association="PROMARKETModel.FK_ORDERDETAILS_ITEMS" />
+        <AssociationConnector Association="PROMARKETModel.FK_ORDERDETAILS_ORDERS" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
