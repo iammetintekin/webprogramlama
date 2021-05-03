@@ -15,53 +15,69 @@
     </div>
     <div class="container">
         <table class="table table-hover">
-        <thead>
-            <tr>
-                <th>ID
-                </th>
-                <th>USERNAME
-                </th>
-                <th>NAME
-                </th>
-                <th>E-MAIL
-                </th>
-                <th>GENDER
-                </th>
-                <th>DETAILS
-                </th>
-            </tr>
-        </thead>
-        <asp:Repeater ID="CustomerRepeater" runat="server">
-            <ItemTemplate>
+            <thead>
                 <tr>
-                    <td>
-                        <%#  Eval("ID") %>
-                    </td>
-                    <td>
-                        <%#  Eval("USERNAME_") %>
-                    </td>
-                    <td>
-                        <%#  Eval("NAMESURNAME") %>
-                    </td>
-                    <td>
-                        <%#  Eval("EMAIL") %>
-                    </td>
-                    <td>
-                        <%#  Eval("GENDER") %>
-                    </td>
-                    <td>
-                        <asp:Button Text="Details" CssClass="btn btn-info" runat="server" />
-                    </td>
+                    <th>ID
+                    </th>
+                    <th>USERNAME
+                    </th>
+                    <th>NAME
+                    </th>
+                    <th>E-MAIL
+                    </th>
+                    <th>GENDER
+                    </th>
+                    <th>DETAILS
+                    </th>
                 </tr>
-            </ItemTemplate>
-        </asp:Repeater>
+            </thead>
+            <asp:Repeater ID="CustomerRepeater" runat="server">
+                <ItemTemplate>
+                    <tr>
+                        <td>
+                            <%#  Eval("ID") %>
+                        </td>
+                        <td>
+                            <%#  Eval("USERNAME_") %>
+                        </td>
+                        <td>
+                            <%#  Eval("NAMESURNAME") %>
+                        </td>
+                        <td>
+                            <%#  Eval("EMAIL") %>
+                        </td>
+                        <td>
+                            <%#  Eval("GENDER") %>
+                        </td>
+                        <td>
+                            <asp:Button Text="Details" CssClass="btn btn-info" runat="server" />
+                        </td>
+                    </tr>
+                </ItemTemplate>
+            </asp:Repeater>
 
-        <tr>
-            <td>
-                <asp:Label Text="" ID="customersCount" runat="server" />
-            </td>
-        </tr>
-    </table>
+            <tr>
+                <td>
+                    <asp:Label Text="" ID="customersCount" runat="server" />
+                </td>
+            </tr>
+        </table>
+        <div class="dataTables_paginate paging_simple_numbers" id="datatables-reponsive_paginate">
+            <ul class="pagination">
+                <li class="paginate_button page-item next" id="datatables-reponsive_previous"><a href="#" aria-controls="datatables-reponsive" data-dt-idx="7" tabindex="0" class="page-link">Başa Dön</a></li>
+                <asp:Repeater ID="pagesrepeater" ItemType="System.String" runat="server">
+                    <ItemTemplate>
+                        <li class="paginate_button page-item">
+                            <asp:LinkButton OnClick="sendCurrentPage" Text='<%# Item %>' class="page-link" ID="LinkButton1" runat="server">LinkButton</asp:LinkButton>
+                            
+                        </li>
+                    </ItemTemplate>
+                </asp:Repeater>
+
+
+                <li class="paginate_button page-item next" id="datatables-reponsive_next"><a href="#" aria-controls="datatables-reponsive" data-dt-idx="7" tabindex="0" class="page-link">Son</a></li>
+            </ul>
+        </div>
     </div>
-    
+
 </asp:Content>

@@ -22,12 +22,30 @@ namespace Proje.Business
         public string TELNR1 { get; set; }
         public string TELNR2 { get; set; }
 
-        public List<USERS> Listele()
+        public List<USERS> Listele(int pagenumber)
         {
+            int totalpagecount_ = 10;
             PROMARKETEntities db = new PROMARKETEntities();
             var result = db.USERS.ToList();
+            var queryresultpage = result.Skip(totalpagecount_ * (pagenumber - 1)).Take(totalpagecount_).ToList();
+            return queryresultpage;
+        }
+
+        public List<USERS> Search(string kadi, int pagenumber)
+        {
+            int totalpagecount_ = 10;
+            PROMARKETEntities db = new PROMARKETEntities();
+            var result = db.USERS.Where(x => x.USERNAME_.Contains(kadi) || x.NAMESURNAME.Contains(kadi)).OrderBy(x => x.ID).ToList();
+            var queryresultpage = result.Skip(totalpagecount_ * (pagenumber - 1)).Take(totalpagecount_).ToList();
             return result;
         }
 
+        public int getAllCount()
+        {
+
+            PROMARKETEntities db = new PROMARKETEntities();
+            var result = db.USERS.ToList();
+            return result.Count;
+        }
     }
 }
