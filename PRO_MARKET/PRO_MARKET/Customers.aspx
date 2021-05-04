@@ -64,16 +64,15 @@
         </table>
         <div class="dataTables_paginate paging_simple_numbers" id="datatables-reponsive_paginate">
             <ul class="pagination">
-                <li class="paginate_button page-item next" id="datatables-reponsive_previous"><a href="#" aria-controls="datatables-reponsive" data-dt-idx="7" tabindex="0" class="page-link">Başa Dön</a></li>
+                <li class="paginate_button page-item next" id="datatables-reponsive_previous">
+                    <a href="#" aria-controls="datatables-reponsive" tabindex="0" class="page-link">Başa Dön</a></li>
                 <asp:Repeater ID="pagesrepeater" ItemType="System.String" runat="server">
                     <ItemTemplate>
                         <li class="paginate_button page-item">
-                            <asp:LinkButton OnClick="sendCurrentPage" Text='<%# Item %>' class="page-link" ID="LinkButton1" runat="server">LinkButton</asp:LinkButton>
-                            
+                            <asp:LinkButton OnClick="sendCurrentPage" Text='<%# Item %>' CssClass='<%# checkCurrentPage(Item) %>' ID="LinkButton1" runat="server"></asp:LinkButton>
                         </li>
                     </ItemTemplate>
                 </asp:Repeater>
-
 
                 <li class="paginate_button page-item next" id="datatables-reponsive_next"><a href="#" aria-controls="datatables-reponsive" data-dt-idx="7" tabindex="0" class="page-link">Son</a></li>
             </ul>

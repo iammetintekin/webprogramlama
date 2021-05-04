@@ -14,12 +14,16 @@ namespace PRO_MARKET
     {
         PROMARKETEntities db = new PROMARKETEntities();
         static int pagenumber = 1;
+        LinkButton lnk = new LinkButton();
         protected void Page_Load(object sender, EventArgs e)
         {
-            
+            if (!IsPostBack)
+            {
                 getAllCustomers(pagenumber);
-                CreatePagingButtons();
-            
+            }
+
+
+
         }
 
         protected void SearchChanged(object sender, EventArgs e)
@@ -46,10 +50,11 @@ namespace PRO_MARKET
             var source = customers.Listele(page);
             CustomerRepeater.DataSource = source;
             CustomerRepeater.DataBind();
-            customersCount.Text = " Showing total " + source.Count().ToString() + " rows";
+            customersCount.Text = " Showing total " + page * source.Count() + " rows";
+            CreatePagingButtons(page);
         }
 
-        protected void CreatePagingButtons()
+        protected void CreatePagingButtons(int sendedPageNumber)
         {
             Customers customers = new Customers();//5000/10=500
             int s1 = customers.getAllCount();
@@ -57,24 +62,43 @@ namespace PRO_MARKET
             List<string> pages_ = new List<string>();
             var pages = pages_;
 
-            for (int i = 1; i < pagecount_+1; i++)
+            for (int i = 1; i < pagecount_ + 1; i++)
             {
                 pages.Add(i.ToString());
             }
 
+            if (sendedPageNumber < 5)
+            {
+                pagesrepeater.DataSource = pages.Take(10);
+                pagesrepeater.DataBind();
+            }
+            else
+            {
+                pagesrepeater.DataSource = pages.Skip(sendedPageNumber - 4).Take(10);
+                pagesrepeater.DataBind();
+            }
 
-            pagesrepeater.DataSource = pages.Skip(1 * (pagenumber - 1)).Take(8);
-            pagesrepeater.DataBind();
 
+        }
+
+        protected string checkCurrentPage(string page)
+        {
+            if (lnk.Text == page)
+            {
+                return "page-link bg-info text-white";
+            }
+            return "page-link bg-light";
         }
 
         protected void sendCurrentPage(object sender, EventArgs e)
         {
 
             LinkButton pagevalue = (LinkButton)sender;
+            lnk = pagevalue;
+            lnk.Text = pagevalue.Text;
             pagenumber = Convert.ToInt32(pagevalue.Text);
-            pagevalue.CssClass = "page-link bg-info";
             getAllCustomers(Convert.ToInt32(pagevalue.Text));
+
         }
     }
 }
