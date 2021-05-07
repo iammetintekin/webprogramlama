@@ -1,19 +1,18 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" EnableEventValidation="false" AutoEventWireup="true" CodeBehind="Customers.aspx.cs" Inherits="PRO_MARKET.WebForm2" %>
-
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="Orders.aspx.cs" Inherits="PRO_MARKET.WebForm3" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <title>Customers
+        <title>
+            All Orders
     </title>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-
-    <div class="input-group mb-2 mr-sm-2">
+        <div class="input-group mb-2 mr-sm-2">
         <div class="input-group-text bg-info text-white">
             <span class="fa fa-search"></span>
         </div>
-        <asp:TextBox class="form-control" AutoPostBack="true" ID="SearchText" OnTextChanged="SearchChanged" placeholder="Name or Username" runat="server" />
-          <div class="input-group-text bg-danger">
-              <a href="Customers.aspx" class="text-white"><span class='fa fa-times'></span></a>
-          
+        <asp:TextBox class="form-control" AutoPostBack="true" ID="SearchText" placeholder="Name or Username" runat="server" />
+        <div class="input-group-text bg-danger">
+            <a href="Customers.aspx" class="text-white"><span class='fa fa-times'></span></a>
+
         </div>
 
     </div>
@@ -21,37 +20,42 @@
         <table class="table table-hover">
             <thead>
                 <tr>
-                    <th>ID
+                    <th>ORDER ID
                     </th>
-                    <th>USERNAME
+                    <th>USER 
                     </th>
-                    <th>NAME
+                    <th>DATE
                     </th>
-                    <th>E-MAIL
+                    <th>TOTAL PRICE
                     </th>
-                    <th>GENDER
+                    <th>ORDER STATUS
+                    </th>
+                    <th>ADDRESS
                     </th>
                     <th>DETAILS
                     </th>
                 </tr>
             </thead>
-            <asp:Repeater ID="CustomerRepeater" runat="server">
+            <asp:Repeater ID="OrderRepeater" runat="server">
                 <ItemTemplate>
                     <tr>
                         <td>
-                            <%#  Eval("ID") %>
+                            <%#  Eval("OrderID") %>
                         </td>
                         <td>
-                            <%#  Eval("USERNAME_") %>
+                            <%#  Eval("Username") %>
                         </td>
                         <td>
-                            <%#  Eval("NAMESURNAME") %>
+                            <%#  Eval("OrderDate") %>
                         </td>
                         <td>
-                            <%#  Eval("EMAIL") %>
+                            <%#  Eval("OrderTotalPrice") %>
                         </td>
                         <td>
-                            <%#  Eval("GENDER") %>
+                            <%#  Eval("Address") %>
+                        </td>
+                        <td>
+                            <%#  Eval("CityandDistrict") %>
                         </td>
                         <td>
                             <asp:Button Text="Details" CssClass="btn btn-info" runat="server" />
@@ -62,14 +66,14 @@
 
             <tr>
                 <td>
-                    <asp:Label Text="" ID="customersCount" runat="server" />
+                    <asp:Label Text="" ID="ordersCount" runat="server" />
                 </td>
             </tr>
         </table>
-        <div class="dataTables_paginate paging_simple_numbers" id="datatables-reponsive_paginate">
+        <%--<div class="dataTables_paginate paging_simple_numbers" id="datatables-reponsive_paginate">
             <ul class="pagination">
                 <li class="paginate_button page-item next" id="datatables-reponsive_previous">
-                        <asp:LinkButton OnClick="sendCurrentPage" Text='Başa Dön' CssClass='btn btn-dark' ID="LinkButton1" runat="server"></asp:LinkButton>
+                    <asp:LinkButton OnClick="sendCurrentPage" Text='Başa Dön' CssClass='btn btn-dark' ID="LinkButton1" runat="server"></asp:LinkButton>
 
                 </li>
                 <asp:Repeater ID="pagesrepeater" ItemType="System.String" runat="server">
@@ -85,7 +89,6 @@
 
                 </li>
             </ul>
-        </div>
+        </div>--%>
     </div>
-
 </asp:Content>

@@ -13,7 +13,8 @@ namespace PRO_MARKET
     public partial class WebForm2 : System.Web.UI.Page
     {
         PROMARKETEntities db = new PROMARKETEntities();
-        static int pagenumber = 1;
+        int pagenumber = 1;
+        static string searchedvalue = "";
         LinkButton lnk = new LinkButton();
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -29,17 +30,16 @@ namespace PRO_MARKET
         protected void SearchChanged(object sender, EventArgs e)
         {
             TextBox textBox = (TextBox)sender;
-            if (textBox.Text == "")
+            searchedvalue = textBox.Text;
+            bool isnull = String.IsNullOrEmpty(searchedvalue);
+            if (isnull==true)
             {
                 getAllCustomers(pagenumber);
             }
             else
             {
-                Customers customers = new Customers();
-                var source = customers.Search(textBox.Text, pagenumber);
-                CustomerRepeater.DataSource = source;
-                CustomerRepeater.DataBind();
-                customersCount.Text = " Showing total " + pagenumber * 10 + " of " + customers.getAllCount().ToString() + " rows";
+                getAllCustomersByUsername(textBox.Text, pagenumber);
+                searchedvalue = textBox.Text;
             }
 
         }
@@ -47,18 +47,31 @@ namespace PRO_MARKET
         protected void getAllCustomers(int page)
         {
             Customers customers = new Customers();
-            var source = customers.Listele(page);
+            var source = customers.Listele(pagenumber);
             CustomerRepeater.DataSource = source;
             CustomerRepeater.DataBind();
-            customersCount.Text = " Showing total " + page * source.Count() + " rows";
-            CreatePagingButtons(page);
+            customersCount.Text = " Showing total " + page * source.Count() + " of "+customers.ListeleCount + " rows";
+            CreatePagingButtons(page, customers.ListeleCount);
         }
 
-        protected void CreatePagingButtons(int sendedPageNumber)
+        protected void getAllCustomersByUsername(string username,int page)
         {
-            Customers customers = new Customers();//5000/10=500
-            int s1 = customers.getAllCount();
-            int pagecount_ = s1 / 10;
+            Customers customers = new Customers();
+            var source = customers.Search(username, pagenumber);
+            CustomerRepeater.DataSource = source;
+            CustomerRepeater.DataBind();
+            customersCount.Text = " Showing total " + page * source.Count() + " of " + customers.searchedCount + " rows";
+            CreatePagingButtons(page, customers.searchedCount);
+        }
+
+        protected void CreatePagingButtons(int sendedPageNumber,int count)
+        {
+
+            int pagecount_ = count / 10;
+            if (pagecount_ % 10 > 0)
+            {
+                pagecount_ += 1;
+            }
             List<string> pages_ = new List<string>();
             var pages = pages_;
 
@@ -93,11 +106,49 @@ namespace PRO_MARKET
         protected void sendCurrentPage(object sender, EventArgs e)
         {
 
+            Customers customers = new Customers();
             LinkButton pagevalue = (LinkButton)sender;
+
             lnk = pagevalue;
+            
             lnk.Text = pagevalue.Text;
-            pagenumber = Convert.ToInt32(pagevalue.Text);
-            getAllCustomers(Convert.ToInt32(pagevalue.Text));
+
+            if (lnk.Text == "Başa Dön")
+            {
+                pagenumber = 1;
+            }
+            else if (lnk.Text == "Son")
+            {
+                if (customers.getAllCount() % 10 > 0)
+                {
+                    pagenumber = (customers.getAllCount() / 10) + 1 ;
+                    getAllCustomers(pagenumber);
+                }
+                else
+                {
+                    pagenumber = customers.getAllCount() / 10;
+                    getAllCustomers(pagenumber);
+                }
+
+            }
+            else
+            {
+                pagenumber = Convert.ToInt32(pagevalue.Text);
+                getAllCustomers(pagenumber);
+            }
+            
+            
+
+
+            if (searchedvalue != "")
+            {
+                getAllCustomersByUsername(searchedvalue, pagenumber);
+            }
+            else
+            {
+                getAllCustomers(pagenumber);
+            }
+            
 
         }
     }

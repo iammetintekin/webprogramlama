@@ -94,6 +94,13 @@
                                                     </a>
                                                 </li>
 
+                                                
+                                                <li class="sidebar-item">
+                                                    <a class="sidebar-link" href="Orders.aspx">
+                                                        <span class="align-middle">Orders</span>
+                                                    </a>
+                                                </li>
+
                                                 <li class="sidebar-item">
                                                     <a class="sidebar-link" href="#">
                                                         <span class="align-middle">Logs</span>
