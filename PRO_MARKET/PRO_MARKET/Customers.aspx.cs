@@ -22,9 +22,6 @@ namespace PRO_MARKET
             {
                 getAllCustomers(pagenumber);
             }
-
-
-
         }
 
         protected void SearchChanged(object sender, EventArgs e)

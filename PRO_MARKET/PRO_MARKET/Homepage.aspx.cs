@@ -11,11 +11,13 @@ namespace PRO_MARKET
     public partial class WebForm1 : System.Web.UI.Page
     {
         Customers customers = new Customers();
+        Orders orders = new Orders();
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
                 CustomersCount.Text = customers.getAllCount().ToString();
+                OrdersCount.Text = orders.getAllCount().ToString();
             }
         }
     }

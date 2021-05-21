@@ -9,7 +9,7 @@
         <div class="input-group-text bg-info text-white">
             <span class="fa fa-search"></span>
         </div>
-        <asp:TextBox class="form-control" AutoPostBack="true" ID="SearchText" placeholder="Name or Username" runat="server" />
+        <asp:TextBox class="form-control" AutoPostBack="true" ID="SearchText" OnTextChanged="SearchChanged" placeholder="Name or Username" runat="server" />
         <div class="input-group-text bg-danger">
             <a href="Customers.aspx" class="text-white"><span class='fa fa-times'></span></a>
 
@@ -28,9 +28,10 @@
                     </th>
                     <th>TOTAL PRICE
                     </th>
-                    <th>ORDER STATUS
-                    </th>
                     <th>ADDRESS
+                    </th>
+                    <th>
+                        CITY AND TOWN
                     </th>
                     <th>DETAILS
                     </th>
@@ -70,10 +71,10 @@
                 </td>
             </tr>
         </table>
-        <%--<div class="dataTables_paginate paging_simple_numbers" id="datatables-reponsive_paginate">
+        <div class="dataTables_paginate paging_simple_numbers" id="datatables-reponsive_paginate">
             <ul class="pagination">
                 <li class="paginate_button page-item next" id="datatables-reponsive_previous">
-                    <asp:LinkButton OnClick="sendCurrentPage" Text='Başa Dön' CssClass='btn btn-dark' ID="LinkButton1" runat="server"></asp:LinkButton>
+                        <asp:LinkButton OnClick="sendCurrentPage" Text='Başa Dön' CssClass='btn btn-dark' ID="LinkButton1" runat="server"></asp:LinkButton>
 
                 </li>
                 <asp:Repeater ID="pagesrepeater" ItemType="System.String" runat="server">
@@ -89,6 +90,6 @@
 
                 </li>
             </ul>
-        </div>--%>
+        </div>
     </div>
 </asp:Content>

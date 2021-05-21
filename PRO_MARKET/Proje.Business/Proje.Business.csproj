@@ -52,6 +52,7 @@
     <Compile Include="Counts.cs" />
     <Compile Include="Customers.cs" />
     <Compile Include="Orders.cs" />
+    <Compile Include="PagingForAllDatas.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -18,34 +18,132 @@ namespace PRO_MARKET
         LinkButton lnk = new LinkButton();
         protected void Page_Load(object sender, EventArgs e)
         {
-            GettAllORders();
+            if (!IsPostBack)
+            { getAllOrders(pagenumber); }
+
         }
 
-        protected void GettAllORders()
+        protected void SearchChanged(object sender, EventArgs e)
+        {
+            TextBox textBox = (TextBox)sender;
+            searchedvalue = textBox.Text;
+            bool isnull = String.IsNullOrEmpty(searchedvalue);
+            if (isnull == true)
+            {
+                getAllOrders(pagenumber);
+            }
+            else
+            {
+                getAllOrderByPhone(textBox.Text, pagenumber);
+                searchedvalue = textBox.Text;
+            }
+
+        }
+
+        protected void getAllOrders(int page)
+        {
+            Orders orders = new Orders();
+            var source = orders.Listele(pagenumber);
+            OrderRepeater.DataSource = source;
+            OrderRepeater.DataBind();
+            ordersCount.Text = " Showing total " + page * source.Count() + " of " + orders.ListeleCount + " rows";
+            CreatePagingButtons(page, orders.ListeleCount);
+        }
+
+        protected void getAllOrderByPhone(string phone, int page)
+        {
+            Orders orders = new Orders();
+            var source = orders.Search(phone, pagenumber);
+            OrderRepeater.DataSource = source;
+            OrderRepeater.DataBind();
+            ordersCount.Text = " Showing total " + page * source.Count() + " of " + orders.searchedCount + " rows";
+            CreatePagingButtons(page, orders.searchedCount);
+        }
+
+        protected void CreatePagingButtons(int sendedPageNumber, int count)
         {
 
+            int pagecount_ = count / 10;
+            if (pagecount_ % 10 > 0)
+            {
+                pagecount_ += 1;
+            }
+            List<string> pages_ = new List<string>();
+            var pages = pages_;
 
-            PROMARKETEntities db = new PROMARKETEntities();
+            for (int i = 1; i < pagecount_ + 1; i++)
+            {
+                pages.Add(i.ToString());
+            }
 
-            var result = (from order in db.ORDERS
-                          join user in db.USERS on order.USERID equals user.ID
-                          join address in db.ADDRESS on order.ADDRESSID equals address.ID
-                          join city in db.CITIES on address.CITYID equals city.ID
-                          join district in db.DISTRICTS on city.ID equals district.ID
-                          select new
-                          {
-                              OrderID = order.ID,
-                              OrderTotalPrice = order.TOTALPRICE.ToString(),
-                              OrderDate = order.DATE_.ToString(),
-                              Username = user.NAMESURNAME.ToString(),
-                              UserUsername = user.USERNAME_.ToString(),
-                              Address = address.ADDRESSTEXT.ToString(),
-                              CityandDistrict = city.CITY.ToString() + " / " + district.DISTRICT.ToString()
+            if (sendedPageNumber < 5)
+            {
+                pagesrepeater.DataSource = pages.Take(10);
+                pagesrepeater.DataBind();
+            }
+            else
+            {
+                pagesrepeater.DataSource = pages.Skip(sendedPageNumber - 4).Take(10);
+                pagesrepeater.DataBind();
+            }
 
-                          }).ToList();
 
-            OrderRepeater.DataSource = result;
-            OrderRepeater.DataBind();
+        }
+
+        protected string checkCurrentPage(string page)
+        {
+            if (lnk.Text == page)
+            {
+                return "page-link bg-info text-white";
+            }
+            return "page-link bg-light";
+        }
+
+        protected void sendCurrentPage(object sender, EventArgs e)
+        {
+
+            Orders orders = new Orders();
+            LinkButton pagevalue = (LinkButton)sender;
+
+            lnk = pagevalue;
+
+            lnk.Text = pagevalue.Text;
+
+            if (lnk.Text == "Başa Dön")
+            {
+                pagenumber = 1;
+            }
+            else if (lnk.Text == "Son")
+            {
+                if (orders.getAllCount() % 10 > 0)
+                {
+                    pagenumber = (orders.getAllCount() / 10) + 1;
+                    getAllOrders(pagenumber);
+                }
+                else
+                {
+                    pagenumber = orders.getAllCount() / 10;
+                    getAllOrders(pagenumber);
+                }
+
+            }
+            else
+            {
+                pagenumber = Convert.ToInt32(pagevalue.Text);
+                getAllOrders(pagenumber);
+            }
+
+
+
+
+            if (searchedvalue != "")
+            {
+                getAllOrderByPhone(searchedvalue, pagenumber);
+            }
+            else
+            {
+                getAllOrders(pagenumber);
+            }
         }
     }
 }
