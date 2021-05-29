@@ -53,6 +53,7 @@
     <Compile Include="Customers.cs" />
     <Compile Include="Orders.cs" />
     <Compile Include="PagingForAllDatas.cs" />
+    <Compile Include="Payments.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
