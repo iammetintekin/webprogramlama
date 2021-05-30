@@ -11,9 +11,9 @@
             <span class="fa fa-search"></span>
         </div>
         <asp:TextBox class="form-control" AutoPostBack="true" ID="SearchText" OnTextChanged="SearchChanged" placeholder="Name or Username" runat="server" />
-          <div class="input-group-text bg-danger">
-              <a href="Customers.aspx" class="text-white"><span class='fa fa-times'></span></a>
-          
+        <div class="input-group-text bg-danger">
+            <a href="Customers.aspx" class="text-white"><span class='fa fa-times'></span></a>
+
         </div>
 
     </div>
@@ -54,7 +54,8 @@
                             <%#  Eval("GENDER") %>
                         </td>
                         <td>
-                            <asp:Button Text="Details" CssClass="btn btn-info" runat="server" />
+                            <a class="btn btn-info" href="CustomerDetails.aspx?CID=<%#  Eval("ID") %>">Details</a>
+
                         </td>
                     </tr>
                 </ItemTemplate>
@@ -69,7 +70,7 @@
         <div class="dataTables_paginate paging_simple_numbers" id="datatables-reponsive_paginate">
             <ul class="pagination">
                 <li class="paginate_button page-item next" id="datatables-reponsive_previous">
-                        <asp:LinkButton OnClick="sendCurrentPage" Text='Başa Dön' CssClass='btn btn-dark' ID="LinkButton1" runat="server"></asp:LinkButton>
+                    <asp:LinkButton OnClick="sendCurrentPage" Text='Başa Dön' CssClass='btn btn-dark' ID="LinkButton1" runat="server"></asp:LinkButton>
 
                 </li>
                 <asp:Repeater ID="pagesrepeater" ItemType="System.String" runat="server">

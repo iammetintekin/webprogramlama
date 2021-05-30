@@ -134,6 +134,7 @@
     <Content Include="Homepage.aspx" />
     <Content Include="Customers.aspx" />
     <Content Include="Orders.aspx" />
+    <Content Include="CustomerDetails.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
@@ -175,6 +176,13 @@
     </Compile>
     <Compile Include="Orders.aspx.designer.cs">
       <DependentUpon>Orders.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CustomerDetails.aspx.cs">
+      <DependentUpon>CustomerDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CustomerDetails.aspx.designer.cs">
+      <DependentUpon>CustomerDetails.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
