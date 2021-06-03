@@ -1,11 +1,11 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site1.Master" AutoEventWireup="true" CodeBehind="Orders.aspx.cs" Inherits="PRO_MARKET.WebForm3" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-        <title>
-            All Orders
+    <title>All Orders
     </title>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-        <div class="input-group mb-2 mr-sm-2">
+    <div class="input-group mb-2 mr-sm-2">
         <div class="input-group-text bg-info text-white">
             <span class="fa fa-search"></span>
         </div>
@@ -30,8 +30,7 @@
                     </th>
                     <th>ADDRESS
                     </th>
-                    <th>
-                        CITY AND TOWN
+                    <th>CITY AND TOWN
                     </th>
                     <th>DETAILS
                     </th>
@@ -58,8 +57,11 @@
                         <td>
                             <%#  Eval("CityandDistrict") %>
                         </td>
+
                         <td>
-                            <asp:Button Text="Details" CssClass="btn btn-info" runat="server" />
+                               <a class="btn btn-info" href="OrderDetails.aspx?OID=<%#  Eval("OrderID") %>">Details</a>
+                           
+
                         </td>
                     </tr>
                 </ItemTemplate>
@@ -74,7 +76,7 @@
         <div class="dataTables_paginate paging_simple_numbers" id="datatables-reponsive_paginate">
             <ul class="pagination">
                 <li class="paginate_button page-item next" id="datatables-reponsive_previous">
-                        <asp:LinkButton OnClick="sendCurrentPage" Text='Başa Dön' CssClass='btn btn-dark' ID="LinkButton1" runat="server"></asp:LinkButton>
+                    <asp:LinkButton OnClick="sendCurrentPage" Text='Başa Dön' CssClass='btn btn-dark' ID="LinkButton1" runat="server"></asp:LinkButton>
 
                 </li>
                 <asp:Repeater ID="pagesrepeater" ItemType="System.String" runat="server">
@@ -92,4 +94,9 @@
             </ul>
         </div>
     </div>
+
+    <!-- Button trigger modal -->
+    <!-- Button trigger modal -->
+
+
 </asp:Content>

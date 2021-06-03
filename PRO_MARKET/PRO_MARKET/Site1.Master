@@ -123,10 +123,11 @@
                                                 </li>
 
                                                 <li class="sidebar-item">
-                                                    <a class="sidebar-link" href="#">
-                                                        <span class="align-middle">Logs</span>
+                                                    <a class="sidebar-link" href="WebServis.aspx">
+                                                        <span class="align-middle">WebServis</span>
                                                     </a>
                                                 </li>
+
 
                                             </ul>
 
@@ -162,7 +163,8 @@
                                     <a class="nav-icon dropdown-toggle d-inline-block d-sm-none" href="#" data-toggle="dropdown"></a>
 
                                     <a class="nav-link dropdown-toggle d-none d-sm-inline-block" href="#" data-toggle="dropdown">
-                                        <img src="img/avatars/avatar.jpg" class="avatar img-fluid rounded mr-1" alt="Metin Tekin">
+                                        <img src="img/profilepicture.jpg" alt="Metin Tekin" class="avatar img-fluid rounded mr-1" width="128" height="128">
+
                                         <span class="text-dark">Metin Tekin</span>
                                     </a>
                                     <div class="dropdown-menu dropdown-menu-right">
@@ -196,10 +198,6 @@
                             </div>
                             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
                             </asp:ContentPlaceHolder>
-
-
-
-
 
                         </div>
                     </main>
@@ -257,53 +255,53 @@
 
             document.addEventListener("DOMContentLoaded", function () {
 
-                // after getting all values I inserted list I can see on console screen and it works
-                var list = [] //my empty list
+                // // after getting all values I inserted list I can see on console screen and it works
+                // var list = [] //my empty list
 
-                var chart = document.getElementById("chardiv");
-                chart.onload = function myFunction5() {
-                    var person = [];
-
-
-                    for (var i = 1; i < 13; i++) {
-
-                        $.ajax
-                            ({
-                                type: "POST",
-                                url: "Homepage.aspx/BringDatas",
-                                data: "{'month':'" + i + "'}",
-                                contentType: "application/json; charset=utf-8",
-                                dataType: "text",
-                                async: false,
-                                success:
-                                    function (output) {
-                                        var sendedvalue = JSON.parse(output);
-                                        //list.push(sendedvalue);
-                                        list.push(sendedvalue.d);//that returns numbers like "20,456"
-                                    },
-                                error:
-                                    function () {
-                                        alert("hata var");
-                                    }
-
-                            });
-                    }
-                    setTimeout(function () {
-
-                        for (var i = 0; i < 12; i++) {
-                            console.log(list[i]);
-                        }
-
-                    }, 0);
-                };
+                // var chart = document.getElementById("chardiv");
+                // chart.onload = function myFunction5() {
+                //     var person = [];
 
 
+                //     for (var i = 1; i < 13; i++) {
 
-                chart.onload();
+                //         $.ajax
+                //             ({
+                //                 type: "POST",
+                //                 url: "Homepage.aspx/BringDatas",
+                //                 data: "{'month':'" + i + "'}",
+                //                 contentType: "application/json; charset=utf-8",
+                //                 dataType: "text",
+                //                 async: false,
+                //                 success:
+                //                     function (output) {
+                //                         var sendedvalue = JSON.parse(output);
+                //                         //list.push(sendedvalue);
+                //                         list.push(sendedvalue.d);//that returns numbers like "20,456"
+                //                     },
+                //                 error:
+                //                     function () {
+                //                        // alert("hata var");
+                //                     }
 
-                console.log(list); //1
+                //             });
+                //     }
+                //     setTimeout(function () {
 
-                console.log("ilk eleman", list[0]); //2
+                //         for (var i = 0; i < 12; i++) {
+                //             console.log(list[i]);
+                //         }
+
+                //     }, 0);
+                // };
+
+
+
+                //// chart.onload();
+
+                // console.log(list); //1
+
+                // console.log("ilk eleman", list[0]); //2
 
 
                 var ctx = document.getElementById("chartjs-dashboard-line").getContext("2d");

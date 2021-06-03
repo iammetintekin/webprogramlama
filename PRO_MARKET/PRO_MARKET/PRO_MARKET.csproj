@@ -113,20 +113,28 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="css\app.css" />
+    <Content Include="Default.aspx" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\fa-brands-400.svg" />
     <Content Include="fonts\fa-regular-400.svg" />
     <Content Include="fonts\fa-solid-900.svg" />
     <Content Include="Global.asax" />
+    <Content Include="img\1.jpg" />
+    <Content Include="img\2.jpg" />
+    <Content Include="img\3.jpg" />
+    <Content Include="img\4.jpg" />
     <Content Include="img\avatars\avatar-2.jpg" />
     <Content Include="img\avatars\avatar-3.jpg" />
     <Content Include="img\avatars\avatar-4.jpg" />
     <Content Include="img\avatars\avatar-5.jpg" />
     <Content Include="img\avatars\avatar.jpg" />
     <Content Include="img\icons\icon-48x48.png" />
+    <Content Include="img\logo2.png" />
+    <Content Include="img\logo_200x200.png" />
     <Content Include="img\photos\unsplash-1.jpg" />
     <Content Include="img\photos\unsplash-2.jpg" />
     <Content Include="img\photos\unsplash-3.jpg" />
+    <Content Include="img\profilepicture.jpg" />
     <Content Include="js\app.js" />
     <Content Include="js\app.js.LICENSE.txt" />
     <Content Include="ViewSwitcher.ascx" />
@@ -135,9 +143,19 @@
     <Content Include="Customers.aspx" />
     <Content Include="Orders.aspx" />
     <Content Include="CustomerDetails.aspx" />
+    <Content Include="OrderDetails.aspx" />
+    <Content Include="Profile.aspx" />
+    <Content Include="WebServis.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -183,6 +201,27 @@
     </Compile>
     <Compile Include="CustomerDetails.aspx.designer.cs">
       <DependentUpon>CustomerDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="OrderDetails.aspx.cs">
+      <DependentUpon>OrderDetails.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="OrderDetails.aspx.designer.cs">
+      <DependentUpon>OrderDetails.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Profile.aspx.cs">
+      <DependentUpon>Profile.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Profile.aspx.designer.cs">
+      <DependentUpon>Profile.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebServis.aspx.cs">
+      <DependentUpon>WebServis.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebServis.aspx.designer.cs">
+      <DependentUpon>WebServis.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -259,6 +298,10 @@
     <ProjectReference Include="..\Proje.DataAccess\Proje.DataAccess.csproj">
       <Project>{80079F1C-A1F1-4770-BA27-2CC0D9856D9A}</Project>
       <Name>Proje.DataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\WebServis\WebServis.csproj">
+      <Project>{24FB643C-6775-4481-8DC5-C3881A3A718F}</Project>
+      <Name>WebServis</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

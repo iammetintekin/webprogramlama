@@ -157,7 +157,7 @@
                                                            <%#  Eval("SiparisSayisi") %>  adet ürün
                                                     </td>
                                                     <td>
-                                                        <asp:Button Text="Details" CssClass="btn btn-info" runat="server" />
+                                                      <a class="btn btn-info" href="OrderDetails.aspx?OID=<%#  Eval("OrderID") %>">Details</a>
                                                     </td>
                                                 </tr>
                                             </ItemTemplate>

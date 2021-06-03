@@ -99,12 +99,13 @@ namespace Proje.Business
             var result = db.ORDERS.ToList();
             return result.Count;
         }
-        public int getSearchedCount()
+        public ORDERS getOrderDetails(int orderId)
         {
 
             PROMARKETEntities db = new PROMARKETEntities();
-            var result = db.ORDERS.ToList();
-            return result.Count;
+            var result = db.ORDERS.Where(x=>x.ID == orderId).FirstOrDefault();
+
+            return result;
         }
     }
 }

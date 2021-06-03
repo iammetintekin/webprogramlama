@@ -82,3 +82,6 @@ D:\Dersler\WEB_PROG\webprogramlama\PRO_MARKET\PRO_MARKET\bin\Proje.DataAccess.dl
 D:\Dersler\WEB_PROG\webprogramlama\PRO_MARKET\PRO_MARKET\bin\EntityFramework.xml
 D:\Dersler\WEB_PROG\webprogramlama\PRO_MARKET\PRO_MARKET\bin\EntityFramework.SqlServer.dll
 D:\Dersler\WEB_PROG\webprogramlama\PRO_MARKET\PRO_MARKET\bin\EntityFramework.SqlServer.xml
+D:\Dersler\WEB_PROG\webprogramlama\PRO_MARKET\PRO_MARKET\bin\WebServis.dll
+D:\Dersler\WEB_PROG\webprogramlama\PRO_MARKET\PRO_MARKET\bin\WebServis.pdb
+D:\Dersler\WEB_PROG\webprogramlama\PRO_MARKET\PRO_MARKET\bin\WebServis.dll.config
