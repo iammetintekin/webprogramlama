@@ -16,7 +16,6 @@ namespace PRO_MARKET
             if (!IsPostBack)
             {
                 siparisDetaydiv.Visible = false;
-                OrderDetails("CRGF0000005451");
             }
             
         }
@@ -24,37 +23,52 @@ namespace PRO_MARKET
 
         protected void OrderDetails(string cargofisno)
         {
-            WebService2 servis = new WebService2();
-            var json = servis.GetOrderDetails(cargofisno);
-            dynamic data = JObject.Parse(json);
-            label1.Text = data.itemsInOrder.Count.ToString();
-
-            OrderId.Text = data.OrderID.ToString();
-            OrderDate.Text = data.OrderDate.ToString();
-            TotalPrice.Text = data.TotalPrice.ToString();
-            //
-            Adress.Text = data.AddressText;
-            //
-            KullaniciAdi.Text = data.KullaniciAdi;
-            KullaniciTelefon.Text =  data.KullaniciTel;
-            KullaniciMail.Text = data.KullaniciMail;
-
-            //
-            decimal toplamAlinanOdeme = 0;
-            foreach (var item in data.itemsInOrder)
+            try
             {
-                toplamAlinanOdeme += Convert.ToDecimal(item.UrunToplam);
+                WebService2 servis = new WebService2();
+                var json = servis.GetOrderDetails(cargofisno);
+                dynamic data = JObject.Parse(json);
+                //label1.Text = data.itemsInOrder.Count.ToString();
+
+                OrderId.Text = data.OrderID.ToString();
+                OrderDate.Text = data.OrderDate.ToString();
+                TotalPrice.Text = data.TotalPrice.ToString();
+                //
+                Adress.Text = data.AddressText;
+                //
+                KullaniciAdi.Text = data.KullaniciAdi;
+                KullaniciTelefon.Text = data.KullaniciTel;
+                KullaniciMail.Text = data.KullaniciMail;
+
+                //
+                decimal toplamAlinanOdeme = 0;
+                foreach (var item in data.itemsInOrder)
+                {
+                    toplamAlinanOdeme += Convert.ToDecimal(item.UrunToplam);
+                }
+                AlinanOdeme.Text = data.AlinanOdeme.ToString();
+                //
+                faturaAdresi.Text = data.FaturaAdresi;
+                KargoFisNo.Text = data.KargoFisNo;
+                ToplamOdeme.Text = data.ToplamOdeme.ToString();
+
+                SiparistekiUrunler.DataSource = data.itemsInOrder;
+                SiparistekiUrunler.DataBind();
+
+                siparisDetaydiv.Visible = true;
             }
-            AlinanOdeme.Text = data.AlinanOdeme.ToString();
-            //
-            faturaAdresi.Text = data.FaturaAdresi;
-            KargoFisNo.Text = data.KargoFisNo;
-            ToplamOdeme.Text = data.ToplamOdeme.ToString();
+            catch (Exception ex)
+            {
 
-            SiparistekiUrunler.DataSource = data.itemsInOrder;
-            SiparistekiUrunler.DataBind();
+                label1.Text = "Kayıt Bulunamadı";
+                siparisDetaydiv.Visible = false;
+            }
+         
+        }
 
-            siparisDetaydiv.Visible = true;
+        protected void siparisKontrol_Click(object sender, EventArgs e)
+        {
+            OrderDetails(SearchText.Text);
         }
     }
 }

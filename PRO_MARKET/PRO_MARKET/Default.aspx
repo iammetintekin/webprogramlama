@@ -59,11 +59,14 @@
                                         <b>Sipariş Kontrol Sistemi</b>
                                         <br />
                                         <div class="d-none d-sm-inline-block">
-                                            <div class="input-group input-group-navbar">
-                                                <input runat="server" id="fisno" type="text" class="form-control" placeholder="Lütfen Fiş Numarası Giriniz" aria-label="Search" />
-                                                <asp:LinkButton CssClass="btn btn-square" Text='<i class="fa fa-search"></i> ARA' ID="siparisKontrol" OnClick="siparisKontrol_Click" runat="server" />
-
+                                            <div class="input-group input-group-lg">
+                                                <div class="input-group-prepend">
+                                                   <asp:LinkButton CssClass="btn btn-square" Text='<i class="fa fa-search"></i> ARA' ID="siparisKontrol" OnClick="siparisKontrol_Click" runat="server" />
+                                                </div>
+                                                   <input runat="server" style="width:500px" required id="fisno" type="text" class="form-control" placeholder="Lütfen Fiş Numarası Giriniz" aria-label="Search" />
+                                               
                                             </div>
+      
                                         </div>
                                     </nav>
                                 </div>

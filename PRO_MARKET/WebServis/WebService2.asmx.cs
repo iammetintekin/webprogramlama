@@ -20,14 +20,6 @@ namespace WebServis
     // [System.Web.Script.Services.ScriptService]
     public class WebService2 : System.Web.Services.WebService
     {
-
-        //[WebMethod]
-        //public string HelloWorld(string name)
-        //{
-        //    return "Hello World" + name;
-        //}
-
-
         [WebMethod]
         public string GetOrderDetails(string cargofisno)
         {
@@ -43,13 +35,9 @@ namespace WebServis
             ORDERS order = new ORDERS();
             Orders oneOrder = new Orders();
             order = oneOrder.getOrderDetails(orderID);
-
             details.OrderID = order.ID.ToString();
             details.OrderDate = (DateTime)order.DATE_;
             details.TotalPrice = (decimal)order.TOTALPRICE;
-
-
-
             var adres = db.ADDRESS.Where(a => a.ID == order.ADDRESSID).FirstOrDefault();
             details.AddressText = adres.ADDRESSTEXT;
 
@@ -82,18 +70,6 @@ namespace WebServis
             details.ToplamOdeme = faturadetay.TOTALPRICE.ToString();
 
             details.itemsInOrder = itemsinorder.ToList<object>();
-
-            //SiparistekiUrunler.DataSource = itemsinorder;
-            //SiparistekiUrunler.DataBind();
-
-
-            //string allinfoAboutOrders =
-            //   "ORDER ID = " + details.OrderID + "\n" +
-            //   "ORDER DATE = " + details.OrderDate.ToString() + "\n" +
-            //   "TOTAL PRICE =" + details.TotalPrice.ToString() + "\n";
-
-            //// var json = new JavaScriptSerializer().Serialize(details);
-            //return allinfoAboutOrders;
             var json = new JavaScriptSerializer().Serialize(details);
             return json;
         }
